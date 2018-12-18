@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/DMN/20151101/dmn.xsd" id="Definitions_1hc0gq4" name="DRD" namespace="http://camunda.org/schema/1.0/dmn">
+  <decision id="check-payment" name="Zahlung prüfen">
+    <decisionTable id="decisionTable_1">
+      <input id="input_1" label="Artikel">
+        <inputExpression id="inputExpression_1" typeRef="string">
+          <text>item</text>
+        </inputExpression>
+      </input>
+      <output id="output_1" label="Freigegeben" name="approved" typeRef="boolean" />
+      <rule id="DecisionRule_1eadkkz">
+        <inputEntry id="UnaryTests_1u0fvcq">
+          <text>"Bleistift"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0dc8rjw">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_05jv1nz">
+        <inputEntry id="UnaryTests_0hq4lld">
+          <text>"Haus"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0c6ohvs">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0oj56fe">
+        <inputEntry id="UnaryTests_02u2bj8">
+          <text>"PC"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1yw53ps">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_18qzhqg">
+        <inputEntry id="UnaryTests_0g3i1lg">
+          <text>"Papier"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_194oohw">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_13ur0aq">
+        <inputEntry id="UnaryTests_093lolg">
+          <text>"Auto"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1x4qv93">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+</definitions>
