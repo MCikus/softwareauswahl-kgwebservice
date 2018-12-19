@@ -29,14 +29,14 @@ client.subscribe('send-mail', async function({ task, taskService }) {
   var transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
-      user: 'infodsp.bot@gmail.com',
-      pass: 'FT4-kTK-rE6-bLD'
+      user: '',
+      pass: ''
     }
   });
 
   var mailOptions = {
-    from: 'infodsp.bot@gmail.com',
-    to: 'bolte@th-brandenburg.de',
+    from: '',
+    to: '',
     subject: 'Bestellung bestätigt.',
     text: 'Bestellung bestätigt.'
   };
