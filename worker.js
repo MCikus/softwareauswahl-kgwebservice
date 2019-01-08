@@ -1,52 +1,18 @@
+/*
+Dies könnte die Bank sein, welche die Zahlung verarbeitet
+ */
 const { Client, logger } = require('camunda-external-task-client-js');
-
-// configuration for the Client:
-//  - 'baseUrl': url to the Process Engine
-//  - 'logger': utility to automatically log important events
 const config = { baseUrl: 'http://bolte.cloud:8080/engine-rest/', use: logger };
-
-// create a Client instance with custom configuration
 const client = new Client(config);
 
-// susbscribe to the topic: 'charge-card'
-client.subscribe('karte-belasten', async function({ task, taskService }) {
-  // Put your business logic here
+client.subscribe('rechnungsbetrag', async function({ task, taskService }) {
 
-  // Get a process variable
-  const amount = task.variables.get('amount');
-  const item = task.variables.get('item');
+  const preis = task.variables.get('preis');
+  const rabatt = task.variables.get('rabatt')
+  const name = task.variables.get('name');
+  const mail = task.variables.get('mail');
 
-  console.log(`Charging credit card with an amount of ${amount}€ for the item '${item}'...`);
+  console.log(`Der Betrag von ${preis-(preis*(rabatt/100))}€ für das Projekt '${name}' (${mail}) wurde erfolgreich eingezogen`);
 
-  // Complete the task
   await taskService.complete(task);
-});
-
-// susbscribe to the topic: 'send-mail'
-client.subscribe('send-mail', async function({ task, taskService }) {
-  var nodemailer = require('nodemailer');
-
-  var transporter = nodemailer.createTransport({
-    service: 'gmail',
-    auth: {
-      user: '',
-      pass: ''
-    }
-  });
-
-  var mailOptions = {
-    from: '',
-    to: '',
-    subject: 'Bestellung bestätigt.',
-    text: 'Bestellung bestätigt.'
-  };
-
-  transporter.sendMail(mailOptions, function(error, info){
-    if (error) {
-      console.log(error);
-    } else {
-      console.log('Email sent: ' + info.response);
-    }
-  });
-    await taskService.complete(task);
 });

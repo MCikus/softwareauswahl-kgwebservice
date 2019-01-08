@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/DMN/20151101/dmn.xsd" xmlns:camunda="http://camunda.org/schema/1.0/dmn" xmlns:biodi="http://bpmn.io/schema/dmn/biodi/1.0" id="definitions_03agsxg" name="definitions" namespace="http://camunda.org/schema/1.0/dmn">
+  <decision id="rabatt" name="Rabatt berechnen">
+    <extensionElements>
+      <biodi:bounds x="150" y="150" width="180" height="80" />
+    </extensionElements>
+    <decisionTable id="decisionTable">
+      <input id="input1" label="Bestandskunde" camunda:inputVariable="B">
+        <inputExpression id="inputExpression1" typeRef="boolean">
+          <text>bestandskunde</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1vrp3v1" label="Rechnungsbetrag" camunda:inputVariable="R">
+        <inputExpression id="LiteralExpression_04trzcx" typeRef="double">
+          <text>preis</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0qwrznk" label="Jahresumsatz" camunda:inputVariable="J">
+        <inputExpression id="LiteralExpression_0jvntb3" typeRef="integer">
+          <text>jahresumsatz</text>
+        </inputExpression>
+      </input>
+      <output id="output1" label="Rabatt" name="Rabatt" typeRef="integer" />
+      <rule id="row-634908820-1">
+        <description>in %</description>
+        <inputEntry id="UnaryTests_0a0l96k">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0i6zo8b">
+          <text>&gt;= 0</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_19fjw8v">
+          <text>&gt;= 0</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0m63fxo">
+          <text>0</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0j61pa9">
+        <description>in %</description>
+        <inputEntry id="UnaryTests_1693o74">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1r3hqyq">
+          <text>&gt;= 0</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0v8zznd">
+          <text>&lt; 10000</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1pftudn">
+          <text>0</text>
+        </outputEntry>
+      </rule>
+      <rule id="row-634908820-2">
+        <description>in %</description>
+        <inputEntry id="UnaryTests_1gxr8g2">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0yyhlg4">
+          <text>&lt; 2000</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0cwkmyi">
+          <text>&gt;= 10000</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1f1qgia">
+          <text>5</text>
+        </outputEntry>
+      </rule>
+      <rule id="row-634908820-3">
+        <description>in %</description>
+        <inputEntry id="UnaryTests_07ng7kn">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1j149h7">
+          <text>&gt;= 2000</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_138h8pq">
+          <text>&gt;= 10000</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_04a2zn7">
+          <text>10</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+</definitions>
