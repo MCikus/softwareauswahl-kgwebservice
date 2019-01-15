@@ -27,10 +27,10 @@
           <text>false</text>
         </inputEntry>
         <inputEntry id="UnaryTests_0i6zo8b">
-          <text>&gt;= 0</text>
+          <text></text>
         </inputEntry>
         <inputEntry id="UnaryTests_19fjw8v">
-          <text>&gt;= 0</text>
+          <text></text>
         </inputEntry>
         <outputEntry id="LiteralExpression_0m63fxo">
           <text>0</text>
@@ -42,7 +42,7 @@
           <text>true</text>
         </inputEntry>
         <inputEntry id="UnaryTests_1r3hqyq">
-          <text>&gt;= 0</text>
+          <text></text>
         </inputEntry>
         <inputEntry id="UnaryTests_0v8zznd">
           <text>&lt; 10000</text>
