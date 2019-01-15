@@ -78,7 +78,7 @@ Erlaubt z.B. des automatisierte Senden von E-Mails auf der Camunda BPM Plattform
     - Inhalt aus [diesem Beispiel](https://github.com/camunda/camunda-bpm-mail#how-to-configure-it) in den Editor einfügen, ```mail.user``` und ```mail.password```mit Login-Daten des Sender-Mailkontos. (In diesem Beispiel ein Gmail-Konto)
     - Datei speichern (STRG+X und mit Y bestätigen)
     - Umgebungsvariable in startup.sh setzen, dazu ins Verzeichnis "/bin" der Camunda BPM Installation wechseln (bei der predeployten Version /server/apache-tomcat-8.0.47/bin)
-    - "startup.sh" öffnen durch das Kommando ```nano startup.sh
+    - "startup.sh" öffnen durch das Kommando ```nano startup.sh```
     - An erste Stelle einfügen: export MAIL_CONFIG="../conf/mail-config.properties"
     - Camunda BPM neustarten    
 ## Prozess 
