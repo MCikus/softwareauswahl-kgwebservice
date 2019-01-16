@@ -12,7 +12,7 @@ Ziel ist die Implementierung eines Demo-Prozesses (BPMN-Notation) innerhalb Camu
 - NodeJS & NPM
 ## Vorgehen
 ### User Task
-Erlaubt das direkte Eingaben von Daten durch einen Benutzer auf der Camunda BPM Plattform durch Formulare.
+Erlaubt das direkte Eingeben von Daten durch einen Benutzer auf der Camunda BPM Plattform durch Formulare.
 - Benötigtes Programm: Camunda Modeler
 - Camunda Docs: [klick](https://docs.camunda.org/get-started/quick-start/user-task/)
   - Im Camunda Modeler
@@ -52,7 +52,7 @@ Ist eine Schnittstelle für einen externen Service, z.B. das Bearbeiten einer Za
 ### Send Task
 Erlaubt z.B. des automatisierte Senden von E-Mails auf der Camunda BPM Plattform. Konkret wird dies durch einen Connector implementiert, was keinerlei Programmierkenntnisse benötigt.
 - Benötigte Programme: Camunda Modeler, SSH-Client
-- Mehr oder weniger gute (vollständige) Dokumentation: [klick](https://github.com/camunda/camunda-bpm-mail#camunda-bpm-mail))
+- Mehr oder weniger gute (vollständige) Dokumentation: [klick](https://github.com/camunda/camunda-bpm-mail#camunda-bpm-mail)
   - Im Camunda Modeler
     - Task als Send Task definieren 
     - Task auswählen und "Properties Panel" öffnen
