@@ -73,6 +73,7 @@ Erlaubt z.B. des automatisierte Senden von E-Mails auf der Camunda BPM Plattform
         - camunda-connect-core >= 1.0.3
         - JavaMail >= 1.5.5
         - slf4j-api >= 1.7.21
+        - camunda-bpm-mail-core
       - Ins Verzeichnis "/conf" der Camunda BPM Installation wechseln (bei der predeployten Version /server/apache-tomcat-8.0.47/conf)
       - "mail-config.properties" erstellen mit folgendem Kommando: ```nano mail-config.properties```
       - Inhalt aus [diesem Beispiel](https://github.com/camunda/camunda-bpm-mail#how-to-configure-it) in den Editor einfügen, ```mail.user``` und ```mail.password```mit Login-Daten des Sender-Mailkontos. (In diesem Beispiel ein Gmail-Konto)
