@@ -26,23 +26,6 @@
         <camunda:formData>
           <camunda:formField id="validiert" label="Ist das Produkt zufriedenstellend und soll das Projekt abgeschlossen werden?" type="boolean" defaultValue="false" />
         </camunda:formData>
-        <camunda:inputOutput>
-          <camunda:outputParameter name="ghj">
-            <camunda:script scriptFormat="JavaScript">function round(value, decimals) {
-  return Number(Math.round(value+"e"+decimals)+"e-"+decimals);
-}
-
-function punktInKomma(value) {
-  return value.toString().replace(/\./g, ",");
-}
-
-var preis = execution.getVariable("preis");
-var rabatt = execution.getVariable("rabatt")
-var finalpreis = punktInKomma(round((preis-(preis*(rabatt/100))), 2).toFixed(2));
-
-execution.setVariable("formatPreis", finalpreis);</camunda:script>
-          </camunda:outputParameter>
-        </camunda:inputOutput>
       </bpmn:extensionElements>
       <bpmn:incoming>SequenceFlow_1wgkvlm</bpmn:incoming>
       <bpmn:incoming>SequenceFlow_1es41v6</bpmn:incoming>
@@ -65,11 +48,27 @@ execution.setVariable("formatPreis", finalpreis);</camunda:script>
 Ihr Projekt '${name}' wurde soeben fertiggestellt und der Betrag in Höhe von ${formatPreis} € (${rabatt} % Rabatt) wird innerhalb der nächsten Tage von Ihrem Bankkonto eingezogen.
 
 Mit freundlichen Grüßen
-Andy B. Kraus
-</camunda:inputParameter>
+Andy B. Kraus</camunda:inputParameter>
           </camunda:inputOutput>
           <camunda:connectorId>mail-send</camunda:connectorId>
         </camunda:connector>
+        <camunda:inputOutput>
+          <camunda:inputParameter name="methods">
+            <camunda:script scriptFormat="JavaScript">function round(value, decimals) {
+  return Number(Math.round(value+"e"+decimals)+"e-"+decimals);
+}
+
+function punktInKomma(value) {
+  return value.toString().replace(/\./g, ",");
+}
+
+var preis = execution.getVariable("preis");
+var rabatt = execution.getVariable("rabatt")
+var finalpreis = punktInKomma(round((preis-(preis*(rabatt/100))), 2).toFixed(2));
+
+execution.setVariable("formatPreis", finalpreis);</camunda:script>
+          </camunda:inputParameter>
+        </camunda:inputOutput>
       </bpmn:extensionElements>
       <bpmn:incoming>SequenceFlow_149rnvy</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_0rlqjx4</bpmn:outgoing>
@@ -116,7 +115,7 @@ Andy B. Kraus
       <bpmn:text>Inhalt: Bestätigung Projektabschluss</bpmn:text>
     </bpmn:textAnnotation>
     <bpmn:textAnnotation id="TextAnnotation_1ouzfcu">
-      <bpmn:text>Per Lastschrift</bpmn:text>
+      <bpmn:text>per Lastschrift</bpmn:text>
     </bpmn:textAnnotation>
   </bpmn:process>
   <bpmn:message id="Message_1w87e9n" name="Message_1q4mvh3" />
